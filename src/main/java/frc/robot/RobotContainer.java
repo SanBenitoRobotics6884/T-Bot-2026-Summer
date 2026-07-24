@@ -21,8 +21,12 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.TunerConstants;
+import frc.robot.intake.IntakeStorageSubsystem;
 import frc.robot.swerve.CommandSwerveDrivetrain;
 import frc.robot.swerve.Telemetry;
+import frc.robot.turret.TurretSubsystem;
+import frc.robot.turret.t_commands.TurretToAprilTag;
+import frc.robot.vision.VisionSubsystem;
 
 public class RobotContainer {
   private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -58,6 +62,12 @@ public class RobotContainer {
   private XboxControllerSim m_driverControllerSim = new XboxControllerSim(0);
   @SuppressWarnings("unused")
   private XboxControllerSim m_operatorControllerSim = new XboxControllerSim(0);
+
+  // Instances of the subsystems :)
+  VisionSubsystem m_visionSubsystem = new VisionSubsystem();
+  TurretSubsystem m_turretSubsystem = new TurretSubsystem();
+  IntakeStorageSubsystem m_intakeStorageSubsystem = new IntakeStorageSubsystem();
+
 
   public RobotContainer() {
     switch (m_setting) {
